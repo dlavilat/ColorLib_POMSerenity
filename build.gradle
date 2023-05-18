@@ -1,0 +1,30 @@
+repositories {
+    mavenCentral()
+}
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("net.serenity-bdd:serenity-gradle-plugin:2.2.1")
+    }
+}
+apply plugin: 'java'
+apply plugin: 'net.serenity-bdd.aggregator'
+compileJava.options.encoding = "UTF-8"
+compileTestJava.options.encoding = "UTF-8"
+dependencies {
+    testImplementation('net.serenity-bdd:serenity-core:3.0.5')
+    testImplementation ('net.serenity-bdd:serenity-junit:3.0.5')
+    testImplementation('junit:junit:4.12')
+    testImplementation('org.assertj:assertj-core:1.7.0 ')
+    testImplementation('org.slf4j:slf4j-simple:1.7.7')
+    implementation ('net.serenity-bdd:serenity-core:3.0.5')
+    implementation ('net.serenity-bdd:serenity-junit:3.0.5')
+    implementation ('net.serenity-bdd:serenity-cucumber:3.0.5')
+    implementation ('net.serenity-bdd:serenity-screenplay:3.0.5')
+    implementation ('net.serenity-bdd:serenity-screenplay-webdriver:3.0.5')
+    implementation ('net.serenity-bdd:serenity-screenplay-rest:3.0.5')
+    implementation group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '4.4.3'
+}
+gradle.startParameter.continueOnFailure = true
