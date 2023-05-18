@@ -1,0 +1,586 @@
+<html lang='en'><head><link href='prism/prism.css' rel='stylesheet' /></head><body><script src='prism/prism.js'></script><body><div><pre><code class='language-html'>&lt;html class=" js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths" style=""&gt;<br/>
+ &lt;head&gt; <br/>
+  &lt;meta charset="UTF-8"&gt; <br/>
+  &lt;title&gt;Form Validation&lt;/title&gt; <br/>
+  &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt; <br/>
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt; <br/>
+  &lt;link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/css/bootstrap.min.css"&gt; <br/>
+  &lt;link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css"&gt; <br/>
+  &lt;link rel="stylesheet" href="assets/css/main.min.css"&gt; <br/>
+  &lt;link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/metisMenu/1.1.3/metisMenu.min.css"&gt; <br/>
+  &lt;link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.css"&gt; <br/>
+  &lt;link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.theme.min.css"&gt; <br/>
+  &lt;link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jQuery-Validation-Engine/2.6.4/validationEngine.jquery.min.css"&gt; &lt;!--[if lt IE 9]&gt;<br/>
+      &lt;script src="assets/lib/html5shiv/html5shiv.js"&gt;&lt;/script&gt;<br/>
+      &lt;script src="assets/lib/respond/respond.min.js"&gt;&lt;/script&gt;<br/>
+      &lt;![endif]--&gt; <br/>
+  &lt;script defer referrerpolicy="origin" src="/cdn-cgi/zaraz/s.js?z=JTdCJTIyZXhlY3V0ZWQlMjIlM0ElNUIlNUQlMkMlMjJ0JTIyJTNBJTIyRm9ybSUyMFZhbGlkYXRpb24lMjIlMkMlMjJ4JTIyJTNBMC4zODIzNDQwNzE3MDc5NzAyNSUyQyUyMnclMjIlM0ExMzY2JTJDJTIyaCUyMiUzQTc2OCUyQyUyMmolMjIlM0E2MDQlMkMlMjJlJTIyJTNBMTM2NiUyQyUyMmwlMjIlM0ElMjJodHRwcyUzQSUyRiUyRmNvbG9ybGliLmNvbSUyRnBvbHlnb24lMkZtZXRpcyUyRmZvcm0tdmFsaWRhdGlvbi5odG1sJTIyJTJDJTIyciUyMiUzQSUyMmh0dHBzJTNBJTJGJTJGY29sb3JsaWIuY29tJTJGcG9seWdvbiUyRm1ldGlzJTJGaW5kZXguaHRtbCUzRiUyMiUyQyUyMmslMjIlM0EyNCUyQyUyMm4lMjIlM0ElMjJVVEYtOCUyMiUyQyUyMm8lMjIlM0EzMDAlMkMlMjJxJTIyJTNBJTVCJTVEJTdE"&gt;&lt;/script&gt;<br/>
+  &lt;script&gt;<br/>
+      less = {<br/>
+        env: "development",<br/>
+        relativeUrls: false,<br/>
+        rootpath: "../assets/"<br/>
+      };<br/>
+    &lt;/script&gt; <br/>
+  &lt;link rel="stylesheet" href="assets/css/style-switcher.css"&gt; <br/>
+  &lt;link rel="stylesheet/less" type="text/css" href="assets/less/theme.less"&gt;<br/>
+  &lt;style type="text/css" id="less:polygon-metis-assets-less-theme"&gt;body.boxed {<br/>
+  background: url("../img/pattern/arches.png") repeat;<br/>
+}<br/>
+#top &gt; .navbar {<br/>
+  border-top: 3px solid #333333;<br/>
+}<br/>
+#top &gt; .navbar .dropdown-menu &gt; li &gt; a:hover,<br/>
+#top &gt; .navbar .dropdown-menu &gt; li &gt; a:focus {<br/>
+  background-color: #333333;<br/>
+  color: #ffffff;<br/>
+}<br/>
+#menu {<br/>
+  background-color: #333333 !important;<br/>
+}<br/>
+#menu &gt; li &gt; a {<br/>
+  color: #ffffff;<br/>
+  text-shadow: none !important;<br/>
+}<br/>
+.sidebar-left-mini #menu &gt; li &gt; a &gt; .link-title {<br/>
+  background-color: #292929 !important;<br/>
+}<br/>
+&lt;/style&gt; <br/>
+  &lt;script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.2.0/less.min.js"&gt;&lt;/script&gt; <br/>
+  &lt;script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"&gt;&lt;/script&gt; <br/>
+  &lt;meta name="robots" content="noindex, nofollow"&gt; <br/>
+  &lt;script nonce="abefe362-a832-4b4b-9302-5852af123acb"&gt;(function(w,d){!function(bg,bh,bi,bj){bg[bi]=bg[bi]||{};bg[bi].executed=[];bg.zaraz={deferred:[],listeners:[]};bg.zaraz.q=[];bg.zaraz._f=function(bk){return function(){var bl=Array.prototype.slice.call(arguments);bg.zaraz.q.push({m:bk,a:bl})}};for(const bm of["track","set","debug"])bg.zaraz[bm]=bg.zaraz._f(bm);bg.zaraz.init=()=&gt;{var bn=bh.getElementsByTagName(bj)[0],bo=bh.createElement(bj),bp=bh.getElementsByTagName("title")[0];bp&&(bg[bi].t=bh.getElementsByTagName("title")[0].text);bg[bi].x=Math.random();bg[bi].w=bg.screen.width;bg[bi].h=bg.screen.height;bg[bi].j=bg.innerHeight;bg[bi].e=bg.innerWidth;bg[bi].l=bg.location.href;bg[bi].r=bh.referrer;bg[bi].k=bg.screen.colorDepth;bg[bi].n=bh.characterSet;bg[bi].o=(new Date).getTimezoneOffset();if(bg.dataLayer)for(const bt of Object.entries(Object.entries(dataLayer).reduce(((bu,bv)=&gt;({...bu[1],...bv[1]})))))zaraz.set(bt[0],bt[1],{scope:"page"});bg[bi].q=[];for(;bg.zaraz.q.length;){const bw=bg.zaraz.q.shift();bg[bi].q.push(bw)}bo.defer=!0;for(const bx of[localStorage,sessionStorage])Object.keys(bx||{}).filter((bz=&gt;bz.startsWith("_zaraz_"))).forEach((by=&gt;{try{bg[bi]["z_"+by.slice(7)]=JSON.parse(bx.getItem(by))}catch{bg[bi]["z_"+by.slice(7)]=bx.getItem(by)}}));bo.referrerPolicy="origin";bo.src="/cdn-cgi/zaraz/s.js?z="+btoa(encodeURIComponent(JSON.stringify(bg[bi])));bn.parentNode.insertBefore(bo,bn)};["complete","interactive"].includes(bh.readyState)?zaraz.init():bg.addEventListener("DOMContentLoaded",zaraz.init)}(w,d,"zarazData","script");})(window,document);&lt;/script&gt;<br/>
+ &lt;/head&gt; <br/>
+ &lt;body class="  " style="background-image: url(&quot;assets/img/pattern/arches.png&quot;); background-repeat: repeat; padding-top: 0px;"&gt; <br/>
+  &lt;div class="bg-dark dk" id="wrap"&gt; <br/>
+   &lt;div id="top"&gt; <br/>
+    &lt;nav class="navbar navbar-inverse navbar-static-top"&gt; <br/>
+     &lt;div class="container-fluid"&gt; <br/>
+      &lt;header class="navbar-header"&gt; &lt;button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"&gt; &lt;span class="sr-only"&gt;Toggle navigation&lt;/span&gt; &lt;span class="icon-bar"&gt;&lt;/span&gt; &lt;span class="icon-bar"&gt;&lt;/span&gt; &lt;span class="icon-bar"&gt;&lt;/span&gt; &lt;/button&gt; &lt;a href="index.html" class="navbar-brand"&gt; &lt;img src="assets/img/logo.png" alt=""&gt; &lt;/a&gt; <br/>
+      &lt;/header&gt; <br/>
+      &lt;div class="topnav"&gt; <br/>
+       &lt;div class="btn-group"&gt; &lt;a data-placement="bottom" data-original-title="Fullscreen" data-toggle="tooltip" class="btn btn-default btn-sm" id="toggleFullScreen"&gt; &lt;i class="glyphicon glyphicon-fullscreen"&gt;&lt;/i&gt; &lt;/a&gt; <br/>
+       &lt;/div&gt; <br/>
+       &lt;div class="btn-group"&gt; &lt;a data-placement="bottom" data-original-title="E-mail" data-toggle="tooltip" class="btn btn-default btn-sm"&gt; &lt;i class="fa fa-envelope"&gt;&lt;/i&gt; &lt;span class="label label-warning"&gt;5&lt;/span&gt; &lt;/a&gt; &lt;a data-placement="bottom" data-original-title="Messages" href="#" data-toggle="tooltip" class="btn btn-default btn-sm"&gt; &lt;i class="fa fa-comments"&gt;&lt;/i&gt; &lt;span class="label label-danger"&gt;4&lt;/span&gt; &lt;/a&gt; &lt;a data-toggle="modal" data-original-title="Help" data-placement="bottom" class="btn btn-default btn-sm" href="#helpModal"&gt; &lt;i class="fa fa-question"&gt;&lt;/i&gt; &lt;/a&gt; <br/>
+       &lt;/div&gt; <br/>
+       &lt;div class="btn-group"&gt; &lt;a href="login.html" data-toggle="tooltip" data-original-title="Logout" data-placement="bottom" class="btn btn-metis-1 btn-sm"&gt; &lt;i class="fa fa-power-off"&gt;&lt;/i&gt; &lt;/a&gt; <br/>
+       &lt;/div&gt; <br/>
+       &lt;div class="btn-group"&gt; &lt;a data-placement="bottom" data-original-title="Show / Hide Left" data-toggle="tooltip" class="btn btn-primary btn-sm toggle-left" id="menu-toggle"&gt; &lt;i class="fa fa-bars"&gt;&lt;/i&gt; &lt;/a&gt; &lt;a data-placement="bottom" data-original-title="Show / Hide Right" data-toggle="tooltip" class="btn btn-default btn-sm toggle-right"&gt; &lt;span class="glyphicon glyphicon-comment"&gt;&lt;/span&gt; &lt;/a&gt; <br/>
+       &lt;/div&gt; <br/>
+      &lt;/div&gt; <br/>
+      &lt;div class="collapse navbar-collapse navbar-ex1-collapse"&gt; <br/>
+       &lt;ul class="nav navbar-nav"&gt; <br/>
+        &lt;li&gt; &lt;a href="dashboard.html"&gt;Dashboard&lt;/a&gt; &lt;/li&gt; <br/>
+        &lt;li&gt; &lt;a href="table.html"&gt;Tables&lt;/a&gt; &lt;/li&gt; <br/>
+        &lt;li&gt; &lt;a href="file.html"&gt;File Manager&lt;/a&gt; &lt;/li&gt; <br/>
+        &lt;li class="dropdown active"&gt; &lt;a href="#" class="dropdown-toggle" data-toggle="dropdown"&gt; Form Elements &lt;b class="caret"&gt;&lt;/b&gt; &lt;/a&gt; <br/>
+         &lt;ul class="dropdown-menu"&gt; <br/>
+          &lt;li&gt; &lt;a href="form-general.html"&gt;General&lt;/a&gt; &lt;/li&gt; <br/>
+          &lt;li&gt; &lt;a href="form-validation.html"&gt;Validation&lt;/a&gt; &lt;/li&gt; <br/>
+          &lt;li&gt; &lt;a href="form-wysiwyg.html"&gt;WYSIWYG&lt;/a&gt; &lt;/li&gt; <br/>
+          &lt;li&gt; &lt;a href="form-wizard.html"&gt;Wizard &amp; File Upload&lt;/a&gt; &lt;/li&gt; <br/>
+         &lt;/ul&gt; &lt;/li&gt; <br/>
+       &lt;/ul&gt; <br/>
+      &lt;/div&gt; <br/>
+     &lt;/div&gt; <br/>
+    &lt;/nav&gt; <br/>
+    &lt;header class="head"&gt; <br/>
+     &lt;div class="search-bar"&gt; <br/>
+      &lt;form class="main-search" action=""&gt; <br/>
+       &lt;div class="input-group"&gt; <br/>
+        &lt;input type="text" class="form-control" placeholder="Live Search ..."&gt; &lt;span class="input-group-btn"&gt; &lt;button class="btn btn-primary btn-sm text-muted" type="button"&gt; &lt;i class="fa fa-search"&gt;&lt;/i&gt; &lt;/button&gt; &lt;/span&gt; <br/>
+       &lt;/div&gt; <br/>
+      &lt;/form&gt; <br/>
+     &lt;/div&gt; <br/>
+     &lt;div class="main-bar"&gt; <br/>
+      &lt;h3&gt; &lt;i class="fa fa-filter"&gt;&lt;/i&gt;&nbsp; Form Validation&lt;/h3&gt; <br/>
+     &lt;/div&gt; <br/>
+    &lt;/header&gt; <br/>
+   &lt;/div&gt; <br/>
+   &lt;div id="left"&gt; <br/>
+    &lt;div class="media user-media bg-dark dker"&gt; <br/>
+     &lt;div class="user-media-toggleHover"&gt; &lt;span class="fa fa-user"&gt;&lt;/span&gt; <br/>
+     &lt;/div&gt; <br/>
+     &lt;div class="user-wrapper bg-dark"&gt; &lt;a class="user-link" href=""&gt; &lt;img class="media-object img-thumbnail user-img" alt="User Picture" src="assets/img/user.gif"&gt; &lt;span class="label label-danger user-label"&gt;16&lt;/span&gt; &lt;/a&gt; <br/>
+      &lt;div class="media-body"&gt; <br/>
+       &lt;h5 class="media-heading"&gt;Archie&lt;/h5&gt; <br/>
+       &lt;ul class="list-unstyled user-info"&gt; <br/>
+        &lt;li&gt; &lt;a href=""&gt;Administrator&lt;/a&gt; &lt;/li&gt; <br/>
+        &lt;li&gt;Last Access : &lt;br&gt; &lt;small&gt; &lt;i class="fa fa-calendar"&gt;&lt;/i&gt;&nbsp;16 Mar 16:32&lt;/small&gt; &lt;/li&gt; <br/>
+       &lt;/ul&gt; <br/>
+      &lt;/div&gt; <br/>
+     &lt;/div&gt; <br/>
+    &lt;/div&gt; <br/>
+    &lt;ul id="menu" class="bg-blue dker"&gt; <br/>
+     &lt;li class="nav-header"&gt;Menu&lt;/li&gt; <br/>
+     &lt;li class="nav-divider"&gt;&lt;/li&gt; <br/>
+     &lt;li class=""&gt; &lt;a href="dashboard.html"&gt; &lt;i class="fa fa-dashboard"&gt;&lt;/i&gt;&lt;span class="link-title"&gt;&nbsp;Dashboard&lt;/span&gt; &lt;/a&gt; &lt;/li&gt; <br/>
+     &lt;li class=""&gt; &lt;a href="javascript:;"&gt; &lt;i class="fa fa-building "&gt;&lt;/i&gt; &lt;span class="link-title"&gt;Layouts&lt;/span&gt; &lt;span class="fa arrow"&gt;&lt;/span&gt; &lt;/a&gt; <br/>
+      &lt;ul class="collapse"&gt; <br/>
+       &lt;li&gt; &lt;a href="boxed.html"&gt; &lt;i class="fa fa-angle-right"&gt;&lt;/i&gt;&nbsp; Boxed Layout &lt;/a&gt; &lt;/li&gt; <br/>
+       &lt;li&gt; &lt;a href="fixed-header-boxed.html"&gt; &lt;i class="fa fa-angle-right"&gt;&lt;/i&gt;&nbsp; Boxed Layout &amp; Fixed Header &lt;/a&gt; &lt;/li&gt; <br/>
+       &lt;li&gt; &lt;a href="fixed-header-fixed-mini-sidebar.html"&gt; &lt;i class="fa fa-angle-right"&gt;&lt;/i&gt;&nbsp; Fixed Header and Fixed Mini Menu &lt;/a&gt; &lt;/li&gt; <br/>
+       &lt;li&gt; &lt;a href="fixed-header-menu.html"&gt; &lt;i class="fa fa-angle-right"&gt;&lt;/i&gt;&nbsp; Fixed Header &amp; Menu &lt;/a&gt; &lt;/li&gt; <br/>
+       &lt;li&gt; &lt;a href="fixed-header-mini-sidebar.html"&gt; &lt;i class="fa fa-angle-right"&gt;&lt;/i&gt;&nbsp; Fixed Header &amp; Mini Menu &lt;/a&gt; &lt;/li&gt; <br/>
+       &lt;li&gt; &lt;a href="fixed-header.html"&gt; &lt;i class="fa fa-angle-right"&gt;&lt;/i&gt;&nbsp; Fixed Header &lt;/a&gt; &lt;/li&gt; <br/>
+       &lt;li&gt; &lt;a href="fixed-menu-boxed.html"&gt; &lt;i class="fa fa-angle-right"&gt;&lt;/i&gt;&nbsp; Boxed Layout &amp; Fixed Menu &lt;/a&gt; &lt;/li&gt; <br/>
+       &lt;li&gt; &lt;a href="fixed-menu.html"&gt; &lt;i class="fa fa-angle-right"&gt;&lt;/i&gt;&nbsp; Fixed Menu &lt;/a&gt; &lt;/li&gt; <br/>
+       &lt;li&gt; &lt;a href="fixed-mini-sidebar.html"&gt; &lt;i class="fa fa-angle-right"&gt;&lt;/i&gt;&nbsp; Fixed &amp; Mini Menu &lt;/a&gt; &lt;/li&gt; <br/>
+       &lt;li&gt; &lt;a href="fxhmoxed.html"&gt; &lt;i class="fa fa-angle-right"&gt;&lt;/i&gt;&nbsp; Boxed and Fixed Header &amp; Nav &lt;/a&gt; &lt;/li&gt; <br/>
+       &lt;li&gt; &lt;a href="no-header-sidebar.html"&gt; &lt;i class="fa fa-angle-right"&gt;&lt;/i&gt;&nbsp; No Header &amp; Sidebars &lt;/a&gt; &lt;/li&gt; <br/>
+       &lt;li&gt; &lt;a href="no-header.html"&gt; &lt;i class="fa fa-angle-right"&gt;&lt;/i&gt;&nbsp; No Header &lt;/a&gt; &lt;/li&gt; <br/>
+       &lt;li&gt; &lt;a href="no-left-right-sidebar.html"&gt; &lt;i class="fa fa-angle-right"&gt;&lt;/i&gt;&nbsp; No Left &amp; Right Sidebar &lt;/a&gt; &lt;/li&gt; <br/>
+       &lt;li&gt; &lt;a href="no-left-sidebar-main-search.html"&gt; &lt;i class="fa fa-angle-right"&gt;&lt;/i&gt;&nbsp; No Left Sidebar &amp; Main Search &lt;/a&gt; &lt;/li&gt; <br/>
+       &lt;li&gt; &lt;a href="no-left-sidebar.html"&gt; &lt;i class="fa fa-angle-right"&gt;&lt;/i&gt;&nbsp; No Left Sidebar &lt;/a&gt; &lt;/li&gt; <br/>
+       &lt;li&gt; &lt;a href="no-main-search.html"&gt; &lt;i class="fa fa-angle-right"&gt;&lt;/i&gt;&nbsp; No Main Search &lt;/a&gt; &lt;/li&gt; <br/>
+       &lt;li&gt; &lt;a href="no-right-sidebar.html"&gt; &lt;i class="fa fa-angle-right"&gt;&lt;/i&gt;&nbsp; No Right Sidebar &lt;/a&gt; &lt;/li&gt; <br/>
+       &lt;li&gt; &lt;a href="sm.html"&gt; &lt;i class="fa fa-angle-right"&gt;&lt;/i&gt;&nbsp; Mini Sidebar &lt;/a&gt; &lt;/li&gt; <br/>
+      &lt;/ul&gt; &lt;/li&gt; <br/>
+     &lt;li class=""&gt; &lt;a href="javascript:;"&gt; &lt;i class="fa fa-tasks"&gt;&lt;/i&gt; &lt;span class="link-title"&gt;Components&lt;/span&gt; &lt;span class="fa arrow"&gt;&lt;/span&gt; &lt;/a&gt; <br/>
+      &lt;ul class="collapse"&gt; <br/>
+       &lt;li&gt; &lt;a href="bgcolor.html"&gt; &lt;i class="fa fa-angle-right"&gt;&lt;/i&gt;&nbsp; Bg Color &lt;/a&gt; &lt;/li&gt; <br/>
+       &lt;li&gt; &lt;a href="bgimage.html"&gt; &lt;i class="fa fa-angle-right"&gt;&lt;/i&gt;&nbsp; Bg Image &lt;/a&gt; &lt;/li&gt; <br/>
+       &lt;li&gt; &lt;a href="button.html"&gt; &lt;i class="fa fa-angle-right"&gt;&lt;/i&gt;&nbsp; Buttons &lt;/a&gt; &lt;/li&gt; <br/>
+       &lt;li&gt; &lt;a href="icon.html"&gt; &lt;i class="fa fa-angle-right"&gt;&lt;/i&gt;&nbsp; Icon &lt;/a&gt; &lt;/li&gt; <br/>
+       &lt;li&gt; &lt;a href="pricing.html"&gt; &lt;i class="fa fa-angle-right"&gt;&lt;/i&gt;&nbsp; Pricing Table &lt;/a&gt; &lt;/li&gt; <br/>
+       &lt;li&gt; &lt;a href="progress.html"&gt; &lt;i class="fa fa-angle-right"&gt;&lt;/i&gt;&nbsp; Progress &lt;/a&gt; &lt;/li&gt; <br/>
+      &lt;/ul&gt; &lt;/li&gt; <br/>
+     &lt;li class="active"&gt; &lt;a href="javascript:;"&gt; &lt;i class="fa fa-pencil"&gt;&lt;/i&gt; &lt;span class="link-title"&gt; Forms &lt;/span&gt; &lt;span class="fa arrow"&gt;&lt;/span&gt; &lt;/a&gt; <br/>
+      &lt;ul class="collapse in"&gt; <br/>
+       &lt;li&gt; &lt;a href="form-general.html"&gt; &lt;i class="fa fa-angle-right"&gt;&lt;/i&gt;&nbsp; Form General &lt;/a&gt; &lt;/li&gt; <br/>
+       &lt;li&gt; &lt;a href="form-validation.html"&gt; &lt;i class="fa fa-angle-right"&gt;&lt;/i&gt;&nbsp; Form Validation &lt;/a&gt; &lt;/li&gt; <br/>
+       &lt;li&gt; &lt;a href="form-wizard.html"&gt; &lt;i class="fa fa-angle-right"&gt;&lt;/i&gt;&nbsp; Form Wizard &lt;/a&gt; &lt;/li&gt; <br/>
+       &lt;li&gt; &lt;a href="form-wysiwyg.html"&gt; &lt;i class="fa fa-angle-right"&gt;&lt;/i&gt;&nbsp; Form WYSIWYG &lt;/a&gt; &lt;/li&gt; <br/>
+      &lt;/ul&gt; &lt;/li&gt; <br/>
+     &lt;li&gt; &lt;a href="table.html"&gt; &lt;i class="fa fa-table"&gt;&lt;/i&gt; &lt;span class="link-title"&gt;Tables&lt;/span&gt; &lt;/a&gt; &lt;/li&gt; <br/>
+     &lt;li&gt; &lt;a href="file.html"&gt; &lt;i class="fa fa-file"&gt;&lt;/i&gt; &lt;span class="link-title"&gt; File Manager &lt;/span&gt; &lt;/a&gt; &lt;/li&gt; <br/>
+     &lt;li&gt; &lt;a href="typography.html"&gt; &lt;i class="fa fa-font"&gt;&lt;/i&gt; &lt;span class="link-title"&gt; Typography &lt;/span&gt; &lt;/a&gt; &lt;/li&gt; <br/>
+     &lt;li&gt; &lt;a href="maps.html"&gt; &lt;i class="fa fa-map-marker"&gt;&lt;/i&gt;&lt;span class="link-title"&gt; Maps &lt;/span&gt; &lt;/a&gt; &lt;/li&gt; <br/>
+     &lt;li&gt; &lt;a href="chart.html"&gt; &lt;i class="fa fa fa-bar-chart-o"&gt;&lt;/i&gt; &lt;span class="link-title"&gt; Charts &lt;/span&gt; &lt;/a&gt; &lt;/li&gt; <br/>
+     &lt;li&gt; &lt;a href="calendar.html"&gt; &lt;i class="fa fa-calendar"&gt;&lt;/i&gt; &lt;span class="link-title"&gt; Calendar &lt;/span&gt; &lt;/a&gt; &lt;/li&gt; <br/>
+     &lt;li&gt; &lt;a href="javascript:;"&gt; &lt;i class="fa fa-exclamation-triangle"&gt;&lt;/i&gt; &lt;span class="link-title"&gt; Error Pages &lt;/span&gt; &lt;span class="fa arrow"&gt;&lt;/span&gt; &lt;/a&gt; <br/>
+      &lt;ul class="collapse"&gt; <br/>
+       &lt;li&gt; &lt;a href="403.html"&gt; &lt;i class="fa fa-angle-right"&gt;&lt;/i&gt;&nbsp;403&lt;/a&gt; &lt;/li&gt; <br/>
+       &lt;li&gt; &lt;a href="404.html"&gt; &lt;i class="fa fa-angle-right"&gt;&lt;/i&gt;&nbsp;404&lt;/a&gt; &lt;/li&gt; <br/>
+       &lt;li&gt; &lt;a href="405.html"&gt; &lt;i class="fa fa-angle-right"&gt;&lt;/i&gt;&nbsp;405&lt;/a&gt; &lt;/li&gt; <br/>
+       &lt;li&gt; &lt;a href="500.html"&gt; &lt;i class="fa fa-angle-right"&gt;&lt;/i&gt;&nbsp;500&lt;/a&gt; &lt;/li&gt; <br/>
+       &lt;li&gt; &lt;a href="503.html"&gt; &lt;i class="fa fa-angle-right"&gt;&lt;/i&gt;&nbsp;503&lt;/a&gt; &lt;/li&gt; <br/>
+       &lt;li&gt; &lt;a href="offline.html"&gt; &lt;i class="fa fa-angle-right"&gt;&lt;/i&gt;&nbsp;offline&lt;/a&gt; &lt;/li&gt; <br/>
+       &lt;li&gt; &lt;a href="countdown.html"&gt; &lt;i class="fa fa-angle-right"&gt;&lt;/i&gt;&nbsp;Under Construction&lt;/a&gt; &lt;/li&gt; <br/>
+      &lt;/ul&gt; &lt;/li&gt; <br/>
+     &lt;li&gt; &lt;a href="grid.html"&gt; &lt;i class="fa fa-columns"&gt;&lt;/i&gt; &lt;span class="link-title"&gt; Grid &lt;/span&gt; &lt;/a&gt; &lt;/li&gt; <br/>
+     &lt;li&gt; &lt;a href="blank.html"&gt; &lt;i class="fa fa-square-o"&gt;&lt;/i&gt; &lt;span class="link-title"&gt; Blank Page &lt;/span&gt; &lt;/a&gt; &lt;/li&gt; <br/>
+     &lt;li class="nav-divider"&gt;&lt;/li&gt; <br/>
+     &lt;li&gt; &lt;a href="login.html"&gt; &lt;i class="fa fa-sign-in"&gt;&lt;/i&gt; &lt;span class="link-title"&gt; Login Page &lt;/span&gt; &lt;/a&gt; &lt;/li&gt; <br/>
+     &lt;li&gt; &lt;a href="javascript:;"&gt; &lt;i class="fa fa-code"&gt;&lt;/i&gt; &lt;span class="link-title"&gt; Unlimited Level Menu &lt;/span&gt; &lt;span class="fa arrow"&gt;&lt;/span&gt; &lt;/a&gt; <br/>
+      &lt;ul class="collapse"&gt; <br/>
+       &lt;li&gt; &lt;a href="javascript:;"&gt;Level 1 &lt;span class="fa arrow"&gt;&lt;/span&gt; &lt;/a&gt; <br/>
+        &lt;ul class="collapse"&gt; <br/>
+         &lt;li&gt; &lt;a href="javascript:;"&gt;Level 2&lt;/a&gt; &lt;/li&gt; <br/>
+         &lt;li&gt; &lt;a href="javascript:;"&gt;Level 2&lt;/a&gt; &lt;/li&gt; <br/>
+         &lt;li&gt; &lt;a href="javascript:;"&gt;Level 2 &lt;span class="fa arrow"&gt;&lt;/span&gt; &lt;/a&gt; <br/>
+          &lt;ul class="collapse"&gt; <br/>
+           &lt;li&gt; &lt;a href="javascript:;"&gt;Level 3&lt;/a&gt; &lt;/li&gt; <br/>
+           &lt;li&gt; &lt;a href="javascript:;"&gt;Level 3&lt;/a&gt; &lt;/li&gt; <br/>
+           &lt;li&gt; &lt;a href="javascript:;"&gt;Level 3 &lt;span class="fa arrow"&gt;&lt;/span&gt; &lt;/a&gt; <br/>
+            &lt;ul class="collapse"&gt; <br/>
+             &lt;li&gt; &lt;a href="javascript:;"&gt;Level 4&lt;/a&gt; &lt;/li&gt; <br/>
+             &lt;li&gt; &lt;a href="javascript:;"&gt;Level 4&lt;/a&gt; &lt;/li&gt; <br/>
+             &lt;li&gt; &lt;a href="javascript:;"&gt;Level 4 &lt;span class="fa arrow"&gt;&lt;/span&gt; &lt;/a&gt; <br/>
+              &lt;ul class="collapse"&gt; <br/>
+               &lt;li&gt; &lt;a href="javascript:;"&gt;Level 5&lt;/a&gt; &lt;/li&gt; <br/>
+               &lt;li&gt; &lt;a href="javascript:;"&gt;Level 5&lt;/a&gt; &lt;/li&gt; <br/>
+               &lt;li&gt; &lt;a href="javascript:;"&gt;Level 5&lt;/a&gt; &lt;/li&gt; <br/>
+              &lt;/ul&gt; &lt;/li&gt; <br/>
+            &lt;/ul&gt; &lt;/li&gt; <br/>
+           &lt;li&gt; &lt;a href="javascript:;"&gt;Level 4&lt;/a&gt; &lt;/li&gt; <br/>
+          &lt;/ul&gt; &lt;/li&gt; <br/>
+         &lt;li&gt; &lt;a href="javascript:;"&gt;Level 2&lt;/a&gt; &lt;/li&gt; <br/>
+        &lt;/ul&gt; &lt;/li&gt; <br/>
+       &lt;li&gt; &lt;a href="javascript:;"&gt;Level 1&lt;/a&gt; &lt;/li&gt; <br/>
+       &lt;li&gt; &lt;a href="javascript:;"&gt;Level 1 &lt;span class="fa arrow"&gt;&lt;/span&gt; &lt;/a&gt; <br/>
+        &lt;ul class="collapse"&gt; <br/>
+         &lt;li&gt; &lt;a href="javascript:;"&gt;Level 2&lt;/a&gt; &lt;/li&gt; <br/>
+         &lt;li&gt; &lt;a href="javascript:;"&gt;Level 2&lt;/a&gt; &lt;/li&gt; <br/>
+         &lt;li&gt; &lt;a href="javascript:;"&gt;Level 2&lt;/a&gt; &lt;/li&gt; <br/>
+        &lt;/ul&gt; &lt;/li&gt; <br/>
+      &lt;/ul&gt; &lt;/li&gt; <br/>
+    &lt;/ul&gt; <br/>
+   &lt;/div&gt; <br/>
+   &lt;div id="content"&gt; <br/>
+    &lt;div class="outer"&gt; <br/>
+     &lt;div class="inner bg-light lter"&gt; <br/>
+      &lt;style&gt;<br/>
+              .form-control.col-lg-6 {<br/>
+                width: 50% !important;<br/>
+              }<br/>
+            &lt;/style&gt; <br/>
+      &lt;div class="row"&gt; <br/>
+       &lt;div class="col-lg-12"&gt; <br/>
+        &lt;div class="box"&gt; <br/>
+         &lt;header class="dark"&gt; <br/>
+          &lt;div class="icons"&gt; &lt;i class="fa fa-check"&gt;&lt;/i&gt; <br/>
+          &lt;/div&gt; <br/>
+          &lt;h5&gt;Popup Validation&lt;/h5&gt; <br/>
+          &lt;div class="toolbar"&gt; <br/>
+           &lt;nav style="padding: 8px;"&gt; &lt;a href="javascript:;" class="btn btn-default btn-xs collapse-box"&gt; &lt;i class="fa fa-minus"&gt;&lt;/i&gt; &lt;/a&gt; &lt;a href="javascript:;" class="btn btn-default btn-xs full-box"&gt; &lt;i class="fa fa-expand"&gt;&lt;/i&gt; &lt;/a&gt; &lt;a href="javascript:;" class="btn btn-danger btn-xs close-box"&gt; &lt;i class="fa fa-times"&gt;&lt;/i&gt; &lt;/a&gt; <br/>
+           &lt;/nav&gt; <br/>
+          &lt;/div&gt; <br/>
+         &lt;/header&gt; <br/>
+         &lt;div id="collapse2" class="body collapse in" aria-expanded="true" style=""&gt; <br/>
+          &lt;form class="form-horizontal" id="popup-validation"&gt; <br/>
+           &lt;div class="form-group"&gt; &lt;label class="control-label col-lg-4"&gt;Required&lt;/label&gt; <br/>
+            &lt;div class="col-lg-4"&gt; <br/>
+             &lt;input type="text" class="validate[required] form-control" name="req" id="req"&gt; <br/>
+            &lt;/div&gt; <br/>
+           &lt;/div&gt; <br/>
+           &lt;div class="form-group"&gt; &lt;label class="control-label col-lg-4"&gt;Select&lt;/label&gt; <br/>
+            &lt;div class="col-lg-4"&gt; &lt;select name="sport" id="sport" class="validate[required] form-control"&gt; &lt;option value=""&gt;Choose a sport&lt;/option&gt; &lt;option value="option1"&gt;Tennis&lt;/option&gt; &lt;option value="option2"&gt;Football&lt;/option&gt; &lt;option value="option3"&gt;Golf&lt;/option&gt; &lt;/select&gt; <br/>
+            &lt;/div&gt; <br/>
+           &lt;/div&gt; <br/>
+           &lt;div class="form-group"&gt; &lt;label class="control-label col-lg-4"&gt;Multiple Select&lt;/label&gt; <br/>
+            &lt;div class="col-lg-4"&gt; &lt;select name="sport2" id="sport2" multiple class="validate[required] form-control"&gt; &lt;option value=""&gt;Choose a sport&lt;/option&gt; &lt;option value="option1"&gt;Tennis&lt;/option&gt; &lt;option value="option2"&gt;Football&lt;/option&gt; &lt;option value="option3"&gt;Golf&lt;/option&gt; &lt;/select&gt; <br/>
+            &lt;/div&gt; <br/>
+           &lt;/div&gt; <br/>
+           &lt;div class="form-group"&gt; &lt;label class="control-label col-lg-4"&gt;Url&lt;/label&gt; <br/>
+            &lt;div class=" col-lg-4"&gt; <br/>
+             &lt;input value="http://" class="validate[required,custom[url]] form-control" type="text" name="url1" id="url1"&gt; <br/>
+            &lt;/div&gt; <br/>
+           &lt;/div&gt; <br/>
+           &lt;div class="form-group"&gt; &lt;label class="control-label col-lg-4"&gt;E-mail&lt;/label&gt; <br/>
+            &lt;div class=" col-lg-4"&gt; <br/>
+             &lt;input class="validate[required,custom[email]] form-control" type="text" name="email1" id="email1"&gt; <br/>
+            &lt;/div&gt; <br/>
+           &lt;/div&gt; <br/>
+           &lt;div class="form-group"&gt; &lt;label class="control-label col-lg-4"&gt;Password&lt;/label&gt; <br/>
+            &lt;div class=" col-lg-4"&gt; <br/>
+             &lt;input class="validate[required] form-control" type="password" name="pass1" id="pass1"&gt; <br/>
+            &lt;/div&gt; <br/>
+           &lt;/div&gt; <br/>
+           &lt;div class="form-group"&gt; &lt;label class="control-label col-lg-4"&gt;Confirm Password&lt;/label&gt; <br/>
+            &lt;div class=" col-lg-4"&gt; <br/>
+             &lt;input class="validate[required,equals[pass1]] form-control" type="password" name="pass2" id="pass2"&gt; <br/>
+            &lt;/div&gt; <br/>
+           &lt;/div&gt; <br/>
+           &lt;div class="form-group"&gt; &lt;label class="control-label col-lg-4"&gt;Minimum field size (6)&lt;/label&gt; <br/>
+            &lt;div class=" col-lg-4"&gt; <br/>
+             &lt;input value="" class="validate[required,minSize[6]] form-control" type="text" name="minsize1" id="minsize1"&gt; <br/>
+            &lt;/div&gt; <br/>
+           &lt;/div&gt; <br/>
+           &lt;div class="form-group"&gt; &lt;label class="control-label col-lg-4"&gt;Maximum field size, optional&lt;/label&gt; <br/>
+            &lt;div class=" col-lg-4"&gt; <br/>
+             &lt;input value="0123456789" class="validate[optional,maxSize[6]] form-control" type="text" name="maxsize1" id="maxsize1"&gt; &lt;span class="help-block"&gt;note that the field is optional - it won't fail if it has no value&lt;/span&gt; <br/>
+            &lt;/div&gt; <br/>
+           &lt;/div&gt; <br/>
+           &lt;div class="form-group"&gt; &lt;label class="control-label col-lg-4"&gt;Number&lt;/label&gt; <br/>
+            &lt;div class=" col-lg-4"&gt; <br/>
+             &lt;input value="-33.87a" class="validate[required,custom[number]] form-control" type="text" name="numbe2r" id="number2"&gt; &lt;span class="help-block"&gt;a signed floating number, ie: -3849.354, 38.00, 38, .77&lt;/span&gt; <br/>
+            &lt;/div&gt; <br/>
+           &lt;/div&gt; <br/>
+           &lt;div class="form-group"&gt; &lt;label class="control-label col-lg-4"&gt;IP&lt;/label&gt; <br/>
+            &lt;div class=" col-lg-4"&gt; <br/>
+             &lt;input value="192.168.3." class="validate[required,custom[ipv4]] form-control" type="text" name="ip" id="ip"&gt; <br/>
+            &lt;/div&gt; <br/>
+           &lt;/div&gt; <br/>
+           &lt;div class="form-group"&gt; &lt;label class="control-label col-lg-4"&gt;Date&lt;/label&gt; <br/>
+            &lt;div class=" col-lg-4"&gt; <br/>
+             &lt;input value="201-12-01" class="validate[required,custom[date]] form-control" type="text" name="date3" id="date3"&gt; &lt;span class="help-block"&gt;ISO 8601 dates only YYYY-mm-dd&lt;/span&gt; <br/>
+            &lt;/div&gt; <br/>
+           &lt;/div&gt; <br/>
+           &lt;div class="form-group"&gt; &lt;label class="control-label col-lg-4"&gt;Date Earlier&lt;/label&gt; <br/>
+            &lt;div class=" col-lg-4"&gt; <br/>
+             &lt;input value="2012/12/16" class="validate[custom[date],past[2012/09/13]] form-control" type="text" name="past" id="past"&gt; &lt;span class="help-block"&gt;Please enter a date ealier than 2012/09/13&lt;/span&gt; <br/>
+            &lt;/div&gt; <br/>
+           &lt;/div&gt; <br/>
+           &lt;div class="form-actions no-margin-bottom"&gt; <br/>
+            &lt;input type="submit" value="Validate" class="btn btn-primary"&gt; <br/>
+           &lt;/div&gt; <br/>
+          &lt;/form&gt; <br/>
+         &lt;/div&gt; <br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; <br/>
+      &lt;/div&gt; <br/>
+      &lt;div class="row"&gt; <br/>
+       &lt;div class="col-lg-12"&gt; <br/>
+        &lt;div class="box"&gt; <br/>
+         &lt;header&gt; <br/>
+          &lt;div class="icons"&gt; &lt;i class="fa fa-th-large"&gt;&lt;/i&gt; <br/>
+          &lt;/div&gt; <br/>
+          &lt;h5&gt;Block Validation&lt;/h5&gt; <br/>
+          &lt;div class="toolbar"&gt; <br/>
+           &lt;nav style="padding: 8px;"&gt; &lt;a href="javascript:;" class="btn btn-default btn-xs collapse-box"&gt; &lt;i class="fa fa-minus"&gt;&lt;/i&gt; &lt;/a&gt; &lt;a href="javascript:;" class="btn btn-default btn-xs full-box"&gt; &lt;i class="fa fa-expand"&gt;&lt;/i&gt; &lt;/a&gt; &lt;a href="javascript:;" class="btn btn-danger btn-xs close-box"&gt; &lt;i class="fa fa-times"&gt;&lt;/i&gt; &lt;/a&gt; <br/>
+           &lt;/nav&gt; <br/>
+          &lt;/div&gt; <br/>
+         &lt;/header&gt; <br/>
+         &lt;div id="collapseOne" class="body collapse in" aria-expanded="true" style=""&gt; <br/>
+          &lt;form action="#" class="form-horizontal" id="block-validate" novalidate&gt; <br/>
+           &lt;div class="form-group"&gt; &lt;label class="control-label col-lg-4"&gt;Required&lt;/label&gt; <br/>
+            &lt;div class="col-lg-4"&gt; <br/>
+             &lt;input type="text" id="required2" name="required2" class="form-control"&gt; <br/>
+            &lt;/div&gt; <br/>
+           &lt;/div&gt; <br/>
+           &lt;div class="form-group"&gt; &lt;label class="control-label col-lg-4"&gt;E-mail&lt;/label&gt; <br/>
+            &lt;div class="col-lg-4"&gt; <br/>
+             &lt;input type="email" id="email2" name="email2" class="form-control"&gt; <br/>
+            &lt;/div&gt; <br/>
+           &lt;/div&gt; <br/>
+           &lt;div class="form-group"&gt; &lt;label class="control-label col-lg-4"&gt;Password&lt;/label&gt; <br/>
+            &lt;div class="col-lg-4"&gt; <br/>
+             &lt;input type="password" id="password2" name="password2" class="form-control"&gt; <br/>
+            &lt;/div&gt; <br/>
+           &lt;/div&gt; <br/>
+           &lt;div class="form-group"&gt; &lt;label class="control-label col-lg-4"&gt;Confirm Password&lt;/label&gt; <br/>
+            &lt;div class="col-lg-4"&gt; <br/>
+             &lt;input type="password" id="confirm_password2" name="confirm_password2" class="form-control"&gt; <br/>
+            &lt;/div&gt; <br/>
+           &lt;/div&gt; <br/>
+           &lt;div class="form-group"&gt; &lt;label class="control-label col-lg-4"&gt;Date&lt;/label&gt; <br/>
+            &lt;div class="col-lg-4"&gt; <br/>
+             &lt;input type="date" id="date2" name="date2" class="form-control"&gt; <br/>
+            &lt;/div&gt; <br/>
+           &lt;/div&gt; <br/>
+           &lt;div class="form-group"&gt; &lt;label class="control-label col-lg-4"&gt;Url&lt;/label&gt; <br/>
+            &lt;div class="col-lg-4"&gt; <br/>
+             &lt;input type="url" id="url2" name="url2" class="form-control"&gt; <br/>
+            &lt;/div&gt; <br/>
+           &lt;/div&gt; <br/>
+           &lt;div class="form-group"&gt; &lt;label class="control-label col-lg-4"&gt;Digits Only&lt;/label&gt; <br/>
+            &lt;div class="col-lg-4"&gt; <br/>
+             &lt;input type="text" id="digits" name="digits" class="form-control"&gt; <br/>
+            &lt;/div&gt; <br/>
+           &lt;/div&gt; <br/>
+           &lt;div class="form-group"&gt; &lt;label class="control-label col-lg-4"&gt;Range [6,16]&lt;/label&gt; <br/>
+            &lt;div class="col-lg-4"&gt; <br/>
+             &lt;input type="text" id="range" name="range" class="form-control"&gt; <br/>
+            &lt;/div&gt; <br/>
+           &lt;/div&gt; <br/>
+           &lt;div class="form-group"&gt; &lt;label class="control-label col-lg-4"&gt;Please agree to our policy&lt;/label&gt; <br/>
+            &lt;div class="col-lg-4"&gt; <br/>
+             &lt;input type="checkbox" id="agree2" name="agree2" class="form-control"&gt; <br/>
+            &lt;/div&gt; <br/>
+           &lt;/div&gt; <br/>
+           &lt;div class="form-actions no-margin-bottom"&gt; <br/>
+            &lt;input type="submit" value="Validate" class="btn btn-primary"&gt; <br/>
+           &lt;/div&gt; <br/>
+          &lt;/form&gt; <br/>
+         &lt;/div&gt; <br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; <br/>
+      &lt;/div&gt; <br/>
+      &lt;div class="row"&gt; <br/>
+       &lt;div class="col-lg-12"&gt; <br/>
+        &lt;div class="box"&gt; <br/>
+         &lt;header&gt; <br/>
+          &lt;div class="icons"&gt; &lt;i class="fa fa-ellipsis-h"&gt;&lt;/i&gt; <br/>
+          &lt;/div&gt; <br/>
+          &lt;h5&gt;Inline Validation&lt;/h5&gt; <br/>
+          &lt;div class="toolbar"&gt; <br/>
+           &lt;nav style="padding: 8px;"&gt; &lt;a href="javascript:;" class="btn btn-default btn-xs collapse-box"&gt; &lt;i class="fa fa-minus"&gt;&lt;/i&gt; &lt;/a&gt; &lt;a href="javascript:;" class="btn btn-default btn-xs full-box"&gt; &lt;i class="fa fa-expand"&gt;&lt;/i&gt; &lt;/a&gt; &lt;a href="javascript:;" class="btn btn-danger btn-xs close-box"&gt; &lt;i class="fa fa-times"&gt;&lt;/i&gt; &lt;/a&gt; <br/>
+           &lt;/nav&gt; <br/>
+          &lt;/div&gt; <br/>
+         &lt;/header&gt; <br/>
+         &lt;div id="collapse3" class="body collapse in" aria-expanded="true" style=""&gt; <br/>
+          &lt;form action="#" class="form-horizontal" id="inline-validate" novalidate&gt; <br/>
+           &lt;div class="form-group"&gt; &lt;label class="control-label col-lg-4"&gt;Required&lt;/label&gt; <br/>
+            &lt;div class="col-lg-8"&gt; <br/>
+             &lt;input type="text" id="required" name="required" class="form-control col-lg-6"&gt; <br/>
+            &lt;/div&gt; <br/>
+           &lt;/div&gt; <br/>
+           &lt;div class="form-group"&gt; &lt;label class="control-label col-lg-4"&gt;E-mail&lt;/label&gt; <br/>
+            &lt;div class="col-lg-8"&gt; <br/>
+             &lt;input type="email" id="email" name="email" class="form-control col-lg-6"&gt; <br/>
+            &lt;/div&gt; <br/>
+           &lt;/div&gt; <br/>
+           &lt;div class="form-group"&gt; &lt;label class="control-label col-lg-4"&gt;Password&lt;/label&gt; <br/>
+            &lt;div class="col-lg-8"&gt; <br/>
+             &lt;input type="password" id="password" name="password" class="form-control col-lg-6"&gt; <br/>
+            &lt;/div&gt; <br/>
+           &lt;/div&gt; <br/>
+           &lt;div class="form-group"&gt; &lt;label class="control-label col-lg-4"&gt;Confirm Password&lt;/label&gt; <br/>
+            &lt;div class="col-lg-8"&gt; <br/>
+             &lt;input type="password" id="confirm_password" name="confirm_password" class="form-control col-lg-6"&gt; <br/>
+            &lt;/div&gt; <br/>
+           &lt;/div&gt; <br/>
+           &lt;div class="form-group"&gt; &lt;label class="control-label col-lg-4"&gt;Date&lt;/label&gt; <br/>
+            &lt;div class="col-lg-8"&gt; <br/>
+             &lt;input type="date" id="date" name="date" class="form-control col-lg-6"&gt; <br/>
+            &lt;/div&gt; <br/>
+           &lt;/div&gt; <br/>
+           &lt;div class="form-group"&gt; &lt;label class="control-label col-lg-4"&gt;Url&lt;/label&gt; <br/>
+            &lt;div class="col-lg-8"&gt; <br/>
+             &lt;input type="url" id="url" name="url" class="form-control col-lg-6"&gt; <br/>
+            &lt;/div&gt; <br/>
+           &lt;/div&gt; <br/>
+           &lt;div class="form-group"&gt; &lt;label class="control-label col-lg-4"&gt;Please agree to our policy&lt;/label&gt; <br/>
+            &lt;div class="col-lg-8"&gt; <br/>
+             &lt;input type="checkbox" id="agree" name="agree" class="form-control col-lg-6"&gt; <br/>
+            &lt;/div&gt; <br/>
+           &lt;/div&gt; <br/>
+           &lt;div class="form-group"&gt; &lt;label class="control-label col-lg-4"&gt;Minimum 3 Chars&lt;/label&gt; <br/>
+            &lt;div class="col-lg-8"&gt; <br/>
+             &lt;input type="text" id="minsize" name="minsize" class="form-control col-lg-6"&gt; <br/>
+            &lt;/div&gt; <br/>
+           &lt;/div&gt; <br/>
+           &lt;div class="form-group"&gt; &lt;label class="control-label col-lg-4"&gt;Maximum 6 Chars&lt;/label&gt; <br/>
+            &lt;div class="col-lg-8"&gt; <br/>
+             &lt;input type="text" id="maxsize" name="maxsize" class="form-control col-lg-6"&gt; <br/>
+            &lt;/div&gt; <br/>
+           &lt;/div&gt; <br/>
+           &lt;div class="form-group"&gt; &lt;label class="control-label col-lg-4"&gt;Minimum 3 &lt;/label&gt; <br/>
+            &lt;div class="col-lg-8"&gt; <br/>
+             &lt;input type="text" id="minNum" name="minNum" class="form-control col-lg-6"&gt; <br/>
+            &lt;/div&gt; <br/>
+           &lt;/div&gt; <br/>
+           &lt;div class="form-group"&gt; &lt;label class="control-label col-lg-4"&gt;Maximum 16 &lt;/label&gt; <br/>
+            &lt;div class="col-lg-8"&gt; <br/>
+             &lt;input type="text" id="maxNum" name="maxNum" class="form-control col-lg-6"&gt; <br/>
+            &lt;/div&gt; <br/>
+           &lt;/div&gt; <br/>
+           &lt;div class="form-actions"&gt; <br/>
+            &lt;input type="submit" value="Validate" class="btn btn-primary"&gt; <br/>
+           &lt;/div&gt; <br/>
+          &lt;/form&gt; <br/>
+         &lt;/div&gt; <br/>
+        &lt;/div&gt; <br/>
+       &lt;/div&gt; <br/>
+      &lt;/div&gt; <br/>
+     &lt;/div&gt; <br/>
+    &lt;/div&gt; <br/>
+   &lt;/div&gt; <br/>
+   &lt;div id="right" class="bg-light lter"&gt; <br/>
+    &lt;div class="alert alert-danger"&gt; &lt;button type="button" class="close" data-dismiss="alert"&gt;×&lt;/button&gt; &lt;strong&gt;Warning!&lt;/strong&gt; Best check yo self, you're not looking too good. <br/>
+    &lt;/div&gt; <br/>
+    &lt;div class="well well-small dark"&gt; <br/>
+     &lt;ul class="list-unstyled"&gt; <br/>
+      &lt;li&gt;Visitor &lt;span class="inlinesparkline pull-right"&gt;1,4,4,7,5,9,10&lt;/span&gt; &lt;/li&gt; <br/>
+      &lt;li&gt;Online Visitor &lt;span class="dynamicsparkline pull-right"&gt;Loading..&lt;/span&gt; &lt;/li&gt; <br/>
+      &lt;li&gt;Popularity &lt;span class="dynamicbar pull-right"&gt;Loading..&lt;/span&gt; &lt;/li&gt; <br/>
+      &lt;li&gt;New Users &lt;span class="inlinebar pull-right"&gt;1,3,4,5,3,5&lt;/span&gt; &lt;/li&gt; <br/>
+     &lt;/ul&gt; <br/>
+    &lt;/div&gt; <br/>
+    &lt;div class="well well-small dark"&gt; &lt;button class="btn btn-block"&gt;Default&lt;/button&gt; &lt;button class="btn btn-primary btn-block"&gt;Primary&lt;/button&gt; &lt;button class="btn btn-info btn-block"&gt;Info&lt;/button&gt; &lt;button class="btn btn-success btn-block"&gt;Success&lt;/button&gt; &lt;button class="btn btn-danger btn-block"&gt;Danger&lt;/button&gt; &lt;button class="btn btn-warning btn-block"&gt;Warning&lt;/button&gt; &lt;button class="btn btn-inverse btn-block"&gt;Inverse&lt;/button&gt; &lt;button class="btn btn-metis-1 btn-block"&gt;btn-metis-1&lt;/button&gt; &lt;button class="btn btn-metis-2 btn-block"&gt;btn-metis-2&lt;/button&gt; &lt;button class="btn btn-metis-3 btn-block"&gt;btn-metis-3&lt;/button&gt; &lt;button class="btn btn-metis-4 btn-block"&gt;btn-metis-4&lt;/button&gt; &lt;button class="btn btn-metis-5 btn-block"&gt;btn-metis-5&lt;/button&gt; &lt;button class="btn btn-metis-6 btn-block"&gt;btn-metis-6&lt;/button&gt; <br/>
+    &lt;/div&gt; <br/>
+    &lt;div class="well well-small dark"&gt; &lt;span&gt;Default&lt;/span&gt; &lt;span class="pull-right"&gt;&lt;small&gt;20%&lt;/small&gt; &lt;/span&gt; <br/>
+     &lt;div class="progress xs"&gt; <br/>
+      &lt;div class="progress-bar progress-bar-info" style="width: 20%"&gt;&lt;/div&gt; <br/>
+     &lt;/div&gt; &lt;span&gt;Success&lt;/span&gt; &lt;span class="pull-right"&gt;&lt;small&gt;40%&lt;/small&gt; &lt;/span&gt; <br/>
+     &lt;div class="progress xs"&gt; <br/>
+      &lt;div class="progress-bar progress-bar-success" style="width: 40%"&gt;&lt;/div&gt; <br/>
+     &lt;/div&gt; &lt;span&gt;warning&lt;/span&gt; &lt;span class="pull-right"&gt;&lt;small&gt;60%&lt;/small&gt; &lt;/span&gt; <br/>
+     &lt;div class="progress xs"&gt; <br/>
+      &lt;div class="progress-bar progress-bar-warning" style="width: 60%"&gt;&lt;/div&gt; <br/>
+     &lt;/div&gt; &lt;span&gt;Danger&lt;/span&gt; &lt;span class="pull-right"&gt;&lt;small&gt;80%&lt;/small&gt; &lt;/span&gt; <br/>
+     &lt;div class="progress xs"&gt; <br/>
+      &lt;div class="progress-bar progress-bar-danger" style="width: 80%"&gt;&lt;/div&gt; <br/>
+     &lt;/div&gt; <br/>
+    &lt;/div&gt; <br/>
+   &lt;/div&gt; <br/>
+  &lt;/div&gt; <br/>
+  &lt;footer class="Footer bg-dark dker"&gt; <br/>
+   &lt;p&gt;2014 © Metis Bootstrap Admin Template&lt;/p&gt; <br/>
+  &lt;/footer&gt; <br/>
+  &lt;div id="helpModal" class="modal fade"&gt; <br/>
+   &lt;div class="modal-dialog"&gt; <br/>
+    &lt;div class="modal-content"&gt; <br/>
+     &lt;div class="modal-header"&gt; &lt;button type="button" class="close" data-dismiss="modal" aria-hidden="true"&gt;×&lt;/button&gt; <br/>
+      &lt;h4 class="modal-title"&gt;Modal title&lt;/h4&gt; <br/>
+     &lt;/div&gt; <br/>
+     &lt;div class="modal-body"&gt; <br/>
+      &lt;p&gt; Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. &lt;/p&gt; <br/>
+     &lt;/div&gt; <br/>
+     &lt;div class="modal-footer"&gt; &lt;button type="button" class="btn btn-default" data-dismiss="modal"&gt;Close&lt;/button&gt; <br/>
+     &lt;/div&gt; <br/>
+    &lt;/div&gt; <br/>
+   &lt;/div&gt; <br/>
+  &lt;/div&gt; <br/>
+  &lt;script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"&gt;&lt;/script&gt; <br/>
+  &lt;script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"&gt;&lt;/script&gt; <br/>
+  &lt;script src="//cdnjs.cloudflare.com/ajax/libs/jQuery-Validation-Engine/2.6.4/jquery.validationEngine.min.js"&gt;&lt;/script&gt; <br/>
+  &lt;script src="//cdnjs.cloudflare.com/ajax/libs/jQuery-Validation-Engine/2.6.4/languages/jquery.validationEngine-en.min.js"&gt;&lt;/script&gt; <br/>
+  &lt;script src="//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"&gt;&lt;/script&gt; <br/>
+  &lt;script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"&gt;&lt;/script&gt; <br/>
+  &lt;script src="//cdnjs.cloudflare.com/ajax/libs/metisMenu/1.1.3/metisMenu.min.js"&gt;&lt;/script&gt; <br/>
+  &lt;script src="//cdnjs.cloudflare.com/ajax/libs/screenfull.js/2.0.0/screenfull.min.js"&gt;&lt;/script&gt; <br/>
+  &lt;script src="assets/js/core.min.js"&gt;&lt;/script&gt; <br/>
+  &lt;script src="assets/js/app.js"&gt;&lt;/script&gt; <br/>
+  &lt;script&gt;<br/>
+      $(function() {<br/>
+        Metis.formValidation();<br/>
+      });<br/>
+    &lt;/script&gt; <br/>
+  &lt;script src="assets/js/style-switcher.min.js"&gt;&lt;/script&gt;<br/>
+  &lt;div id="getCSSModal" class="modal fade"&gt;<br/>
+   &lt;div class="modal-dialog"&gt;<br/>
+    &lt;div class="modal-content"&gt;<br/>
+     &lt;div class="modal-header"&gt;<br/>
+      &lt;button type="button" class="close" data-dismiss="modal" aria-hidden="true"&gt;×&lt;/button&gt;<br/>
+      &lt;h4 class="modal-title"&gt;Theme CSS&lt;/h4&gt;&lt;code&gt;Copy textarea content and paste into theme.css&lt;/code&gt;<br/>
+     &lt;/div&gt; <br/>
+     &lt;div class="modal-body"&gt;<br/>
+      &lt;textarea class="form-control" name="cssbeautify" id="cssbeautify" readonly&gt;&lt;/textarea&gt;<br/>
+     &lt;/div&gt; <br/>
+     &lt;div class="modal-footer"&gt;<br/>
+      &lt;button aria-hidden="true" data-dismiss="modal" class="btn btn-danger"&gt;Close&lt;/button&gt;<br/>
+     &lt;/div&gt; <br/>
+    &lt;/div&gt;<br/>
+   &lt;/div&gt; <br/>
+  &lt;/div&gt;<br/>
+  &lt;div id="style-switcher" class="style-switcher hidden-xs"&gt;<br/>
+   &lt;h5&gt;Style Switcher&lt;a href="#" id="switcher-link"&gt;&lt;i class="fa fa-cogs fa-2x"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/h5&gt;<br/>
+   &lt;div class="style-switcher-wrap"&gt;<br/>
+    &lt;h6&gt;Background Colors&lt;/h6&gt;<br/>
+    &lt;ul class="options" data-type="colors"&gt;<br/>
+     &lt;li&gt;&lt;a data-color-hex="#0088CC" data-color-name="Blue" href="#" title="" style="background-color: rgb(0, 136, 204);" data-original-title="Blue"&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+     &lt;li&gt;&lt;a data-color-hex="#4EB25C" data-color-name="Green" href="#" title="" style="background-color: rgb(78, 178, 92);" data-original-title="Green"&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+     &lt;li&gt;&lt;a data-color-hex="#4A5B7D" data-color-name="Navy" href="#" title="" style="background-color: rgb(74, 91, 125);" data-original-title="Navy"&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+     &lt;li&gt;&lt;a data-color-hex="#E05048" data-color-name="Red" href="#" title="" style="background-color: rgb(224, 80, 72);" data-original-title="Red"&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+     &lt;li&gt;&lt;a data-color-hex="#B8A279" data-color-name="Beige" href="#" title="" style="background-color: rgb(184, 162, 121);" data-original-title="Beige"&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+     &lt;li&gt;&lt;a data-color-hex="#c71c77" data-color-name="Pink" href="#" title="" style="background-color: rgb(199, 28, 119);" data-original-title="Pink"&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+     &lt;li&gt;&lt;a data-color-hex="#734BA9" data-color-name="Purple" href="#" title="" style="background-color: rgb(115, 75, 169);" data-original-title="Purple"&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+     &lt;li&gt;&lt;a data-color-hex="#2BAAB1" data-color-name="Cyan" href="#" title="" style="background-color: rgb(43, 170, 177);" data-original-title="Cyan"&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+     &lt;li&gt;&lt;input class="color-picker-icon" id="colorSelector" type="color"&gt;&lt;/li&gt;<br/>
+    &lt;/ul&gt;<br/>
+    &lt;hr&gt;<br/>
+    &lt;div class="options-link"&gt;<br/>
+     &lt;h6&gt;Font Colors&lt;/h6&gt;<br/>
+     &lt;div class="btn-group" data-toggle="buttons"&gt;<br/>
+      &lt;label class="btn btn-xs btn-primary"&gt;White&lt;input type="radio" name="fgcolor" value="#ffffff"&gt;&lt;/label&gt;&lt;label class="btn btn-xs btn-danger"&gt;Black&lt;input type="radio" name="fgcolor" value="#333333"&gt;&lt;/label&gt;<br/>
+     &lt;/div&gt;<br/>
+    &lt;/div&gt;<br/>
+    &lt;div class="pattern"&gt;<br/>
+     &lt;h6&gt;Background Pattern&lt;/h6&gt;<br/>
+     &lt;ul class="options" data-type="pattern"&gt;<br/>
+      &lt;li&gt;&lt;a href="#" title="" data-pattern-image="brillant" style="background: url(&quot;assets/img/pattern/brillant.png&quot;) repeat;" data-original-title="Brillant"&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;li&gt;&lt;a href="#" title="" data-pattern-image="always_grey" style="background: url(&quot;assets/img/pattern/always_grey.png&quot;) repeat;" data-original-title="Always Grey"&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;li&gt;&lt;a href="#" title="" data-pattern-image="retina_wood" style="background: url(&quot;assets/img/pattern/retina_wood.png&quot;) repeat;" data-original-title="Retina Wood"&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;li&gt;&lt;a href="#" title="" data-pattern-image="low_contrast_linen" style="background: url(&quot;assets/img/pattern/low_contrast_linen.png&quot;) repeat;" data-original-title="Low Constrat Linen"&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;li&gt;&lt;a href="#" title="" data-pattern-image="egg_shell" style="background: url(&quot;assets/img/pattern/egg_shell.png&quot;) repeat;" data-original-title="Egg Shel"&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;li&gt;&lt;a href="#" title="" data-pattern-image="cartographer" style="background: url(&quot;assets/img/pattern/cartographer.png&quot;) repeat;" data-original-title="Cartographer"&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;li&gt;&lt;a href="#" title="" data-pattern-image="batthern" style="background: url(&quot;assets/img/pattern/batthern.png&quot;) repeat;" data-original-title="Batthern"&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;li&gt;&lt;a href="#" title="" data-pattern-image="noisy_grid" style="background: url(&quot;assets/img/pattern/noisy_grid.png&quot;) repeat;" data-original-title="Noisy Grid"&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;li&gt;&lt;a href="#" title="" data-pattern-image="diamond_upholstery" style="background: url(&quot;assets/img/pattern/diamond_upholstery.png&quot;) repeat;" data-original-title="Diamond Upholstery"&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;li&gt;&lt;a href="#" title="" data-pattern-image="greyfloral" style="background: url(&quot;assets/img/pattern/greyfloral.png&quot;) repeat;" data-original-title="Gray Floral"&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;li&gt;&lt;a href="#" title="" data-pattern-image="white_tiles" style="background: url(&quot;assets/img/pattern/white_tiles.png&quot;) repeat;" data-original-title="White Tiles"&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;li&gt;&lt;a href="#" title="" data-pattern-image="gplaypattern" style="background: url(&quot;assets/img/pattern/gplaypattern.png&quot;) repeat;" data-original-title="GPlay"&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;li&gt;&lt;a href="#" title="" data-pattern-image="arches" style="background: url(&quot;assets/img/pattern/arches.png&quot;) repeat;" data-original-title="Arches"&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;li&gt;&lt;a href="#" title="" data-pattern-image="purty_wood" style="background: url(&quot;assets/img/pattern/purty_wood.png&quot;) repeat;" data-original-title="Purty Wood"&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;li&gt;&lt;a href="#" title="" data-pattern-image="diagonal_striped_brick" style="background: url(&quot;assets/img/pattern/diagonal_striped_brick.png&quot;) repeat;" data-original-title="Diagonal Striped Brick"&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;li&gt;&lt;a href="#" title="" data-pattern-image="large_leather" style="background: url(&quot;assets/img/pattern/large_leather.png&quot;) repeat;" data-original-title="Large Leather"&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;li&gt;&lt;a href="#" title="" data-pattern-image="bo_play_pattern" style="background: url(&quot;assets/img/pattern/bo_play_pattern.png&quot;) repeat;" data-original-title="BO Play"&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;li&gt;&lt;a href="#" title="" data-pattern-image="irongrip" style="background: url(&quot;assets/img/pattern/irongrip.png&quot;) repeat;" data-original-title="Iron Grip"&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;li&gt;&lt;a href="#" title="" data-pattern-image="wood_1" style="background: url(&quot;assets/img/pattern/wood_1.png&quot;) repeat;" data-original-title="Dark Wood"&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;li&gt;&lt;a href="#" title="" data-pattern-image="pool_table" style="background: url(&quot;assets/img/pattern/pool_table.png&quot;) repeat;" data-original-title="Pool Table"&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;li&gt;&lt;a href="#" title="" data-pattern-image="crissXcross" style="background: url(&quot;assets/img/pattern/crissXcross.png&quot;) repeat;" data-original-title="crissXcross"&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;li&gt;&lt;a href="#" title="" data-pattern-image="rip_jobs" style="background: url(&quot;assets/img/pattern/rip_jobs.png&quot;) repeat;" data-original-title="R.I.P Steve Jobs"&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;li&gt;&lt;a href="#" title="" data-pattern-image="random_grey_variations" style="background: url(&quot;assets/img/pattern/random_grey_variations.png&quot;) repeat;" data-original-title="Random Grey Variations"&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;li&gt;&lt;a href="#" title="" data-pattern-image="carbon_fibre" style="background: url(&quot;assets/img/pattern/carbon_fibre.png&quot;) repeat;" data-original-title="Carbon Fibre"&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+     &lt;/ul&gt;<br/>
+    &lt;/div&gt;<br/>
+    &lt;div class="options-link"&gt;<br/>
+     &lt;hr&gt;&lt;a href="#"&gt;Reset&lt;/a&gt;&lt;a href="#"&gt;Get CSS&lt;/a&gt;<br/>
+    &lt;/div&gt;<br/>
+   &lt;/div&gt;<br/>
+  &lt;/div&gt; <br/>
+  &lt;script defer src="https://static.cloudflareinsights.com/beacon.min.js/v52afc6f149f6479b8c77fa569edb01181681764108816" integrity="sha512-jGCTpDpBAYDGNYR5ztKt4BQPGef1P0giN6ZGVUi835kFF88FOmmn8jBQWNgrNd8g/Yu421NdgWhwQoaOPFflDw==" data-cf-beacon="{&quot;rayId&quot;:&quot;7c972f735d0a8df1&quot;,&quot;token&quot;:&quot;cd0b4b3a733644fc843ef0b185f98241&quot;,&quot;version&quot;:&quot;2023.4.0&quot;,&quot;si&quot;:100}" crossorigin="anonymous"&gt;&lt;/script&gt; <br/>
+ &lt;/body&gt;<br/>
+&lt;/html&gt;</code></pre></div></body></html>

@@ -3,6 +3,8 @@ package com.tallerconpatron.certificacion.colorlib.definition;
 import com.tallerconpatron.certificacion.colorlib.common.BasePage;
 import com.tallerconpatron.certificacion.colorlib.step.TaskAction;
 import com.tallerconpatron.certificacion.colorlib.step.TaskNavigateMenu;
+import com.tallerconpatron.certificacion.colorlib.step.form.TaskFormValidation;
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -18,6 +20,9 @@ public class LoginDefinition extends BasePage {
     TaskAction taskAction;
     @Steps
     TaskNavigateMenu taskNavigateMenu;
+
+    @Steps
+    TaskFormValidation taskFormValidation;
 
     @Given("I enter with my credentials")
     public void iEnterWithMyCredentials(io.cucumber.datatable.DataTable dataTable) {
@@ -52,10 +57,15 @@ public class LoginDefinition extends BasePage {
 
     @And("Check the title of the form on the screen")
     public void checkTheTitleOfTheFormOnTheScreen() {
+        taskFormValidation.verifyTitlePage();
     }
 
     @And("fill out information")
-    public void fillOutInformation() {
+    public void fillOutInformation(io.cucumber.datatable.DataTable dataTable) {
+        taskFormValidation.setData(dataTable);
+        /*taskFormValidation.setRequired(dataTable.cell(1,0));
+        taskFormValidation.setSelect(dataTable.cell(1,1));
+        taskFormValidation.setSelectMultiple(dataTable.cell(1,2));*/
     }
 
     @And("clic button Validate")

@@ -19,11 +19,13 @@
     And enter submenu form validations
     And Check the title of the form on the screen
     And fill out information
+      |Required|Select|MultipleSelect|Url|Email|Password|ConfirmPassword|MinField|MaxField|
+      |<Required>|<Select>|<MultipleSelect>|<Url>|<Email>|<Password>|<ConfirmPassword>|<MinField>|<MaxField>|
     And clic button Validate
     Then all fields will be empty
 
     Examples:
-    |User|Password|
-    |admin|admin|
+    |User|Password|Required|Select|MultipleSelect|Url|Email|Password|ConfirmPassword|MinField|MaxField|
+    |admin|admin|prueba  |option2|option3        |http://dfsdfd.com|a@q.com|123|123 |1|null           |
 
 

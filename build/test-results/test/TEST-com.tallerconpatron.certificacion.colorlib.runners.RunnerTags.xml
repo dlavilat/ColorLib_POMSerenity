@@ -4,7 +4,7 @@
   <system-out><![CDATA[
 1 Scenarios (?[32m1 passed?[0m)
 8 Steps (?[32m8 passed?[0m)
-0m28,499s
+0m33,787s
 
 
 ]]></system-out>
@@ -25,6 +25,6 @@
 -------------------------------------------------------------------------------------
 
 [Test worker] INFO  - Test Suite Started: Verify loggin session for colorlib platform
-[pool-2-thread-1] INFO org.reflections.Reflections - Reflections took 6 ms to scan 0 urls, producing 0 keys and 0 values
+[pool-2-thread-1] INFO org.reflections.Reflections - Reflections took 4 ms to scan 0 urls, producing 0 keys and 0 values
 ]]></system-err>
 </testsuite>
