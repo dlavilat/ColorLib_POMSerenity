@@ -1,11 +1,8 @@
 package com.tallerconpatron.certificacion.colorlib.pageobject;
 
-import com.tallerconpatron.certificacion.colorlib.common.BasePage;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;

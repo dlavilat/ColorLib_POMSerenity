@@ -13,13 +13,7 @@ public class TaskFormValidation extends BasePage {
     public void verifyTitlePage(){
         paginaForm.verifySingIn();
     }
-
     @Step
-
-    /*public void setData(String strRequired,String strSelect,
-    String strSelectMultiple, String strUrl,
-    String strEmail, String strPassword,
-    String strConfirmPassword){*/
     public void setData(io.cucumber.datatable.DataTable dataTable){
         setRequired(dataTable.cell(1,0));
         setSelect(dataTable.cell(1,1));

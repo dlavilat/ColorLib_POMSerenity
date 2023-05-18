@@ -4,7 +4,6 @@ import com.tallerconpatron.certificacion.colorlib.common.BasePage;
 import com.tallerconpatron.certificacion.colorlib.step.TaskAction;
 import com.tallerconpatron.certificacion.colorlib.step.TaskNavigateMenu;
 import com.tallerconpatron.certificacion.colorlib.step.form.TaskFormValidation;
-import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -63,9 +62,6 @@ public class LoginDefinition extends BasePage {
     @And("fill out information")
     public void fillOutInformation(io.cucumber.datatable.DataTable dataTable) {
         taskFormValidation.setData(dataTable);
-        /*taskFormValidation.setRequired(dataTable.cell(1,0));
-        taskFormValidation.setSelect(dataTable.cell(1,1));
-        taskFormValidation.setSelectMultiple(dataTable.cell(1,2));*/
     }
 
     @And("clic button Validate")
