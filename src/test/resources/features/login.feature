@@ -15,7 +15,12 @@
       |User|Password|
       |<User>|<Password>|
     When I proceed with the authentication
-    Then go to the main view of the page
+    And go to the main view of the page
+    And enter submenu form validations
+    And Check the title of the form on the screen
+    And fill out information
+    And clic button Validate
+    Then all fields will be empty
 
     Examples:
     |User|Password|

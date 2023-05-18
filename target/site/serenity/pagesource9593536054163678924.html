@@ -1,0 +1,74 @@
+<html lang='en'><head><link href='prism/prism.css' rel='stylesheet' /></head><body><script src='prism/prism.js'></script><body><div><pre><code class='language-html'>&lt;html lang="en"&gt;<br/>
+ &lt;head&gt; <br/>
+  &lt;meta charset="UTF-8"&gt; <br/>
+  &lt;title&gt;Login Page&lt;/title&gt; <br/>
+  &lt;meta name="msapplication-TileColor" content="#5bc0de"&gt; <br/>
+  &lt;meta name="msapplication-TileImage" content="assets/img/metis-tile.png"&gt; <br/>
+  &lt;link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/css/bootstrap.min.css"&gt; <br/>
+  &lt;link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css"&gt; <br/>
+  &lt;link rel="stylesheet" href="assets/css/main.min.css"&gt; <br/>
+  &lt;meta name="robots" content="noindex, nofollow"&gt; <br/>
+  &lt;script defer referrerpolicy="origin" src="/cdn-cgi/zaraz/s.js?z=JTdCJTIyZXhlY3V0ZWQlMjIlM0ElNUIlNUQlMkMlMjJ0JTIyJTNBJTIyTG9naW4lMjBQYWdlJTIyJTJDJTIyeCUyMiUzQTAuMzI0MzU5MjE2MDMzMTkwNSUyQyUyMnclMjIlM0ExMzY2JTJDJTIyaCUyMiUzQTc2OCUyQyUyMmolMjIlM0E2MDQlMkMlMjJlJTIyJTNBMTM2NiUyQyUyMmwlMjIlM0ElMjJodHRwcyUzQSUyRiUyRmNvbG9ybGliLmNvbSUyRnBvbHlnb24lMkZtZXRpcyUyRmxvZ2luLmh0bWwlMjIlMkMlMjJyJTIyJTNBJTIyJTIyJTJDJTIyayUyMiUzQTI0JTJDJTIybiUyMiUzQSUyMlVURi04JTIyJTJDJTIybyUyMiUzQTMwMCUyQyUyMnElMjIlM0ElNUIlNUQlN0Q="&gt;&lt;/script&gt;<br/>
+  &lt;script nonce="6f2202cc-cdca-4bc9-9db5-d03ff90ac2f8"&gt;(function(w,d){!function(bg,bh,bi,bj){bg[bi]=bg[bi]||{};bg[bi].executed=[];bg.zaraz={deferred:[],listeners:[]};bg.zaraz.q=[];bg.zaraz._f=function(bk){return function(){var bl=Array.prototype.slice.call(arguments);bg.zaraz.q.push({m:bk,a:bl})}};for(const bm of["track","set","debug"])bg.zaraz[bm]=bg.zaraz._f(bm);bg.zaraz.init=()=&gt;{var bn=bh.getElementsByTagName(bj)[0],bo=bh.createElement(bj),bp=bh.getElementsByTagName("title")[0];bp&&(bg[bi].t=bh.getElementsByTagName("title")[0].text);bg[bi].x=Math.random();bg[bi].w=bg.screen.width;bg[bi].h=bg.screen.height;bg[bi].j=bg.innerHeight;bg[bi].e=bg.innerWidth;bg[bi].l=bg.location.href;bg[bi].r=bh.referrer;bg[bi].k=bg.screen.colorDepth;bg[bi].n=bh.characterSet;bg[bi].o=(new Date).getTimezoneOffset();if(bg.dataLayer)for(const bt of Object.entries(Object.entries(dataLayer).reduce(((bu,bv)=&gt;({...bu[1],...bv[1]})))))zaraz.set(bt[0],bt[1],{scope:"page"});bg[bi].q=[];for(;bg.zaraz.q.length;){const bw=bg.zaraz.q.shift();bg[bi].q.push(bw)}bo.defer=!0;for(const bx of[localStorage,sessionStorage])Object.keys(bx||{}).filter((bz=&gt;bz.startsWith("_zaraz_"))).forEach((by=&gt;{try{bg[bi]["z_"+by.slice(7)]=JSON.parse(bx.getItem(by))}catch{bg[bi]["z_"+by.slice(7)]=bx.getItem(by)}}));bo.referrerPolicy="origin";bo.src="/cdn-cgi/zaraz/s.js?z="+btoa(encodeURIComponent(JSON.stringify(bg[bi])));bn.parentNode.insertBefore(bo,bn)};["complete","interactive"].includes(bh.readyState)?zaraz.init():bg.addEventListener("DOMContentLoaded",zaraz.init)}(w,d,"zarazData","script");})(window,document);&lt;/script&gt;<br/>
+ &lt;/head&gt; <br/>
+ &lt;body class="login"&gt; <br/>
+  &lt;div class="form-signin"&gt; <br/>
+   &lt;div class="text-center"&gt; <br/>
+    &lt;img src="assets/img/logo.png" alt="Metis Logo"&gt; <br/>
+   &lt;/div&gt; <br/>
+   &lt;hr&gt; <br/>
+   &lt;div class="tab-content"&gt; <br/>
+    &lt;div id="login" class="tab-pane active"&gt; <br/>
+     &lt;form action="index.html"&gt; <br/>
+      &lt;p class="text-muted text-center"&gt; Enter your username and password &lt;/p&gt; <br/>
+      &lt;input type="text" placeholder="Username" class="form-control top"&gt; <br/>
+      &lt;input type="password" placeholder="Password" class="form-control bottom"&gt; <br/>
+      &lt;div class="checkbox"&gt; &lt;label&gt; &lt;input type="checkbox"&gt; Remember Me &lt;/label&gt; <br/>
+      &lt;/div&gt; &lt;button class="btn btn-lg btn-primary btn-block" type="submit"&gt;Sign in&lt;/button&gt; <br/>
+     &lt;/form&gt; <br/>
+    &lt;/div&gt; <br/>
+    &lt;div id="forgot" class="tab-pane"&gt; <br/>
+     &lt;form action="index.html"&gt; <br/>
+      &lt;p class="text-muted text-center"&gt;Enter your valid e-mail&lt;/p&gt; <br/>
+      &lt;input type="email" placeholder="mail@domain.com" class="form-control"&gt; <br/>
+      &lt;br&gt; &lt;button class="btn btn-lg btn-danger btn-block" type="submit"&gt;Recover Password&lt;/button&gt; <br/>
+     &lt;/form&gt; <br/>
+    &lt;/div&gt; <br/>
+    &lt;div id="signup" class="tab-pane"&gt; <br/>
+     &lt;form action="index.html"&gt; <br/>
+      &lt;input type="text" placeholder="username" class="form-control top"&gt; <br/>
+      &lt;input type="email" placeholder="mail@domain.com" class="form-control middle"&gt; <br/>
+      &lt;input type="password" placeholder="password" class="form-control middle"&gt; <br/>
+      &lt;input type="password" placeholder="re-password" class="form-control bottom"&gt; &lt;button class="btn btn-lg btn-success btn-block" type="submit"&gt;Register&lt;/button&gt; <br/>
+     &lt;/form&gt; <br/>
+    &lt;/div&gt; <br/>
+   &lt;/div&gt; <br/>
+   &lt;hr&gt; <br/>
+   &lt;div class="text-center"&gt; <br/>
+    &lt;ul class="list-inline"&gt; <br/>
+     &lt;li&gt; &lt;a class="text-muted" href="#login" data-toggle="tab"&gt;Login&lt;/a&gt; &lt;/li&gt; <br/>
+     &lt;li&gt; &lt;a class="text-muted" href="#forgot" data-toggle="tab"&gt;Forgot Password&lt;/a&gt; &lt;/li&gt; <br/>
+     &lt;li&gt; &lt;a class="text-muted" href="#signup" data-toggle="tab"&gt;Signup&lt;/a&gt; &lt;/li&gt; <br/>
+    &lt;/ul&gt; <br/>
+   &lt;/div&gt; <br/>
+  &lt;/div&gt; <br/>
+  &lt;script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"&gt;&lt;/script&gt; <br/>
+  &lt;script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"&gt;&lt;/script&gt; <br/>
+  &lt;script type="text/javascript"&gt;<br/>
+      (function($) {<br/>
+        $(document).ready(function() {<br/>
+          $('.list-inline li &gt; a').click(function() {<br/>
+            var activeForm = $(this).attr('href') + ' &gt; form';<br/>
+            //console.log(activeForm);<br/>
+            $(activeForm).addClass('animated fadeIn');<br/>
+            //set timer to 1 seconds, after that, unload the animate animation<br/>
+            setTimeout(function() {<br/>
+              $(activeForm).removeClass('animated fadeIn');<br/>
+            }, 1000);<br/>
+          });<br/>
+        });<br/>
+      })(jQuery);<br/>
+    &lt;/script&gt; <br/>
+  &lt;script defer src="https://static.cloudflareinsights.com/beacon.min.js/v52afc6f149f6479b8c77fa569edb01181681764108816" integrity="sha512-jGCTpDpBAYDGNYR5ztKt4BQPGef1P0giN6ZGVUi835kFF88FOmmn8jBQWNgrNd8g/Yu421NdgWhwQoaOPFflDw==" data-cf-beacon="{&quot;rayId&quot;:&quot;7c914083f9018deb&quot;,&quot;token&quot;:&quot;cd0b4b3a733644fc843ef0b185f98241&quot;,&quot;version&quot;:&quot;2023.4.0&quot;,&quot;si&quot;:100}" crossorigin="anonymous"&gt;&lt;/script&gt; <br/>
+ &lt;/body&gt;<br/>
+&lt;/html&gt;</code></pre></div></body></html>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Verify loggin session for colorlib platform" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-05-18T01:19:25" hostname="ROBIN" time="38.913">
+<testsuite name="Verify loggin session for colorlib platform" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-05-18T14:40:08" hostname="ROBIN" time="28.234">
   <properties/>
-  <testcase name="Verify correct entry" classname="Verify loggin session for colorlib platform" time="38.913"/>
+  <testcase name="Verify correct entry" classname="Verify loggin session for colorlib platform" time="28.234"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[[Test worker] INFO  - 
   _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
@@ -16,11 +16,11 @@ Verify correct entry(verify-loggin-session-for-colorlib-platform;verify-correct-
 [Test worker] INFO io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as C:\Users\robin\.cache\selenium\chromedriver\win32\113.0.5672.63\chromedriver.exe
 [Test worker] INFO net.serenitybdd.core.webdriver.driverproviders.ProvideNewDriver - Instantiating driver
 [Test worker] INFO net.serenitybdd.core.webdriver.driverproviders.ProvideNewDriver - Driver capabilities: Capabilities {acceptInsecureCerts: false, browserName: chrome, driver: chrome, goog:chromeOptions: {args: [--start-maximized], extensions: []}, loggingPrefs: org.openqa.selenium.logging..., timeouts.implicitlywait: 20000}
-Starting ChromeDriver 113.0.5672.63 (0e1a4471d5ae5bf128b1bd8f4d627c8cbd55f70c-refs/branch-heads/5672@{#912}) on port 19043
+Starting ChromeDriver 113.0.5672.63 (0e1a4471d5ae5bf128b1bd8f4d627c8cbd55f70c-refs/branch-heads/5672@{#912}) on port 1485
 Only local connections are allowed.
 Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
 ChromeDriver was started successfully.
-may. 17, 2023 8:19:29 P. M. org.openqa.selenium.remote.ProtocolHandshake createSession
+may. 18, 2023 9:40:12 A. M. org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected dialect: W3C
 [Test worker] INFO  - 
   _____   ___   ___   _____     ___     _     ___   ___   ___   ___  

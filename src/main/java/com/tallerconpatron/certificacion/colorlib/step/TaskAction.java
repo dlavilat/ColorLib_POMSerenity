@@ -11,8 +11,8 @@ public class TaskAction extends BasePage {
     private PaginaPrincipal paginaPrincipal;
 
     @Step
-    public void openApp(){
-        paginaLogin.open();
+    public void openPage(){
+        openApp();
     }
 
     @Step
@@ -25,9 +25,7 @@ public class TaskAction extends BasePage {
     @Step
     public void verifySingIn(){
         paginaPrincipal.verifySingIn();
-        paginaLogin.getDriver().quit();
     }
-
 
     public void sendKeysUser(String strUser){
         paginaLogin.user.click();
